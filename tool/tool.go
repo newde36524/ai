@@ -134,3 +134,13 @@ func download() {
 		fs.Close()
 	}
 }
+
+func Filter(data []string, callback func(string) bool) []string {
+	var result []string
+	for _, v := range data {
+		if callback(v) {
+			result = append(result, v)
+		}
+	}
+	return result
+}
